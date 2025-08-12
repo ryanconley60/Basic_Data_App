@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+  <head>
+    <title>Header</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+    />
+  </head>
+  <body style="margin: 0; padding: 0">
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <h1 class="navbar-item" style="font-size: 1.5rem; font-weight: bold;">
+            Data Entry Tool
+          </h1>
+          <span class="navbar-burger" data-target="navbarMenuHeroA">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroA" class="navbar-menu">
+          <div class="navbar-start">
+            <a href="/home" class="navbar-item is-active" style="margin: .1em;"> Enter Data </a>
+            <a href="/table_data" class="navbar-item is-active" style="margin: .1em;"> View Data </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <body>
+</html>

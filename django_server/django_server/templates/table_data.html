@@ -1,0 +1,56 @@
+{% load render_table from django_tables2 %}
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+  <head>
+    <title>View Table Data</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css"
+    />
+  </head>
+
+  <body>
+    {% include "header.html" %}
+    <div style="margin: auto; padding: 1em; width: 75%; height: 100%">
+      <!-- Add displayed information to the display if a form was just submitted -->
+      {% if entered_data %}
+      <h1 class="title is-4">Thank you for submitting data!</h1>
+      <p class="subtitle">You submitted data for:</p>
+      <!-- Display the submitted data in a table format -->
+      <table class="table is-hoverable is-fullwidth" style="width: 100%">
+        <thead>
+          <tr>
+            <th>Submitted Name</th>
+            <th>Submitted Age</th>
+            <th>Submitted Title</th>
+            <th>Submitted Hometown</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <!-- Update age/hometown to N/A when they weren't entered for consistency -->
+            <td>{{ entered_data.name }}</td>
+            {% if entered_data.age %}
+            <td>{{ entered_data.age }}</td>
+            {% else %}
+            <td>N/A</td>
+            {% endif %}
+            <td>{{ entered_data.title }}</td>
+            {% if entered_data.hometown %}
+            <td>{{ entered_data.hometown }}</td>
+            {% else %}
+            <td>N/A</td>
+            {% endif %}
+          </tr>
+        </tbody>
+      </table>
+      {% endif %}
+      <!-- Display all of the table data, this always happens on this page -->
+      <h1 class="title is-4 mt-5">Here is the list of all data:</h1>
+      <div class="table is-hoverable is-fullwidth" style="width: 100%">
+        {% render_table table %}
+      </div>
+    </div>
+    {% include "footer.html" %}
+  </body>
+</html>

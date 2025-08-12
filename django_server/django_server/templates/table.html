@@ -1,0 +1,86 @@
+{% comment %} <!DOCTYPE html>
+{% extends "base.html" %} {% block content %}
+<html>
+  <head>
+    <title>My Table Data</title>
+  </head>
+  <body>
+    <h1>Data from MyTable</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Title</th>
+          <th>Hometown</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in table_data %}
+        <tr>
+          <td>{{ item.name }}</td>
+          <td>{{ item.age }}</td>
+          <td>{{ item.title }}</td>
+          <td>{{ item.hometown }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
+{% endblock %} {% endcomment %}
+
+<!-- Required styles for Material Web -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+/>
+<!-- Render Django Context -->
+
+{% comment %}
+<header class="mdc-header">
+  <h1 class="mdc-header__title">My Website</h1>
+  <nav class="mdc-header__nav">
+    <a href="/" class="mdc-header__link">Home</a>
+    <a href="/existing_entries" class="mdc-header__link">Existing Entries</a>
+  </nav>
+</header>
+{% endcomment %}
+
+<h1>Hello {{ dummy_context }}</h1>
+<!-- Render textfield component -->
+<table class="mdc-data-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Title</th>
+      <th>Hometown</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in table_data %}
+    <tr>
+      <td>{{ item.name }}</td>
+      <td>{{ item.age }}</td>
+      <td>{{ item.title }}</td>
+      <td>{{ item.hometown }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<footer class="mdc-footer">
+  <span class="mdc-footer__text">
+    &copy; {{ year|default:"2024" }} My Website. All rights reserved.
+  </span>
+</footer>
+
+<!-- Required Material Web JavaScript library -->
+<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+<!-- Instantiate single textfield component rendered in the document -->
+<script>
+  mdc.textField.MDCTextField.attachTo(
+    document.querySelector(".mdc-text-field")
+  );
+</script>
