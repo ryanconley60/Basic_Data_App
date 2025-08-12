@@ -1,4 +1,7 @@
-# Setup
+# Run Deployed Web Application on Python Anywhere
+ For convenience, this application is currently hosted at https://ryanconley60.pythonanywhere.com/home
+
+# Checkout and Setup
  This application was developed using django and some supporting django libraries.
  This application has only been tested in a Windows environment with python version 3.13
 
@@ -6,8 +9,13 @@
  
     $ pip install -r requirements.txt
 
- Then simply apply the migrations:
+ Navigate one directory down to the same directory as manage.py if you aren't already for more convenience running the manage.py service
 
+    $ cd django_server
+
+ Then simply update then apply the migrations:
+
+    $ python manage.py makemigrations
     $ python manage.py migrate
 
  You can now run the development server:
@@ -16,6 +24,8 @@
 
  This assumes the default configuration, the django application will be accessible on port 8000
  For example, http://127.0.0.1:8000/
+
+ Additional wsgi configurations and/or updating the allowed urls in settings.py might be needed to cover other deployment needs
 
 
 # Basic_Data_App
